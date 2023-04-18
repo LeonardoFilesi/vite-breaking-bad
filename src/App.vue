@@ -14,22 +14,23 @@ export default {
       store
     }
   }, 
-/*   methods: {
-    cardsFilter() {
-      if (this.store.filterArchitype) {
-        params.archetype = this.store.filterArchitype;
-      }
-    }
-  }, */
   mounted() {
-    this.store.loading = true;
-    axios.get(store.apiURL).then((resp) => {
-      console.log(resp);
-      this.store.characters = resp.data.data;
-      this.store.meta = resp.data.meta;
-      this.store.loading = false;
-    })
+    this.cardSelected();
+  },
+  methods: {
+    cardSelected() {
+      this.store.loading = true;
+      const params = {
+        ... this.store.selectedOption && { archetype: this.store.selectedOption }
+      }
+      axios.get(this.store.apiURL, {
+        params
+      }).then(resp => { this.store.cards = resp.data.data; })
+        .catch(error => { console.log(error); this.store.error = "Oops, quacosa è andato storto.." })
+        .finally(() => { this.store.loading = false; });
+    }
   }
+
 }
 </script>
 

@@ -1,26 +1,28 @@
 <script>
 import AppCard from "./AppCard.vue"
+import Searchbar from "./SearchBar.vue"
 
 
 export default {
     name: "AppMain",
     components: {
+        Searchbar,
         AppCard,
+    },
+    methods:{
+        gestioneScelta(){
+            this.cardSelected();
+        }
     }
 }
+
 </script>
 
 <template>
     <div class="wrapper-main">
         <div class="wrapper-container ">
             <section class="container">
-                <select class="mb-4"  name="" id="">
-                    <option value="">Alien</option>
-                    <option value="">Ally of Justice</option>
-                    <option value="">Ancient Gear</option>
-                    <option value="">All</option>
-                </select>
-
+                <SearchBar @filter="gestioneScelta" />
                 <AppCard />
             </section>
         </div>
