@@ -15,9 +15,10 @@ export default {
         <div class="wrapper-container ">
             <section class="container">
                 <select class="mb-4"  name="" id="">
-                    <option value="">prova1</option>
-                    <option value="">prova2</option>
-                    <option value="">prova3</option>
+                    <option value="">Alien</option>
+                    <option value="">Ally of Justice</option>
+                    <option value="">Ancient Gear</option>
+                    <option value="">All</option>
                 </select>
 
                 <AppCard />
